@@ -12,3 +12,6 @@ from langchain_cohere import CohereRerank
 
 import os
 os.environ['OPENAI_API_KEY'] = "your openai api key"
+
+embeddings_model = OpenAIEmbeddings(model='text-embedding-3-small')
+llm = ChatOpenAI(model_name='gpt-3.5-turbo', max_tokens=300)
