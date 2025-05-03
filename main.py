@@ -32,3 +32,5 @@ chunks = text_splitter.split_documents(pages)
 vectordb = Chroma(embedding_function=embeddings_model, persist_directory='naiveDB')
 
 naive_retriever = vectordb.as_retriever(search_kwargs={"k": 10})
+
+os.environ['COHERE_API_KEY'] = "your cohere api key"
