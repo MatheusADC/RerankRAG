@@ -9,3 +9,6 @@ from langchain_core.output_parsers import StrOutputParser
 
 from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
 from langchain_cohere import CohereRerank
+
+import os
+os.environ['OPENAI_API_KEY'] = "your openai api key"
