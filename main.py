@@ -34,3 +34,10 @@ vectordb = Chroma(embedding_function=embeddings_model, persist_directory='naiveD
 naive_retriever = vectordb.as_retriever(search_kwargs={"k": 10})
 
 os.environ['COHERE_API_KEY'] = "your cohere api key"
+
+rerank = CohereRerank(model="rerank-v3.5", top_n=3)
+
+compressor_retriever = ContextualCompressionRetriever(
+    base_compressor=rerank,
+    base_retriever=naive_retriever,
+)
