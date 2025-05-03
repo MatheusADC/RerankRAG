@@ -19,3 +19,12 @@ llm = ChatOpenAI(model_name='gpt-3.5-turbo', max_tokens=300)
 pdf_link = 'your pdf link'
 loader = PyPDFLoader(pdf_link, extract_images=False)
 pages = loader.load_and_split()
+
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=4000, 
+    chunk_overlap=20,
+    length_function=len,
+    add_start_index=True
+)
+
+chunks = text_splitter.split_documents(pages)
