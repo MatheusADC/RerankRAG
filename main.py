@@ -29,7 +29,7 @@ text_splitter = RecursiveCharacterTextSplitter(
 
 chunks = text_splitter.split_documents(pages)
 
-vectordb = Chroma(embedding_function=embeddings_model, persist_directory='naiveDB')
+vectordb = Chroma(embedding_function=embeddings_model, persist_directory='naive')
 
 naive_retriever = vectordb.as_retriever(search_kwargs={"k": 10})
 
