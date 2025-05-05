@@ -41,3 +41,13 @@ compressor_retriever = ContextualCompressionRetriever(
     base_compressor=rerank,
     base_retriever=naive_retriever,
 )
+
+TEMPLATE = """""
+    Você é um especilist em legislação e tecnologia. Responda a pergunta abaiixo utilizando o contexto informado.
+    Query:
+    {question}
+
+    Context:
+    {context}
+"""
+rag_prompt = ChatPromptTemplate.from_template(TEMPLATE)
