@@ -43,7 +43,7 @@ compressor_retriever = ContextualCompressionRetriever(
 )
 
 TEMPLATE = """""
-    Você é um especilist em legislação e tecnologia. Responda a pergunta abaiixo utilizando o contexto informado.
+    Você é um especilista em legislação e tecnologia. Responda a pergunta abaiixo utilizando o contexto informado.
     Query:
     {question}
 
