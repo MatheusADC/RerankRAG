@@ -51,3 +51,16 @@ TEMPLATE = """""
     {context}
 """
 rag_prompt = ChatPromptTemplate.from_template(TEMPLATE)
+
+setup_retrival = RunnableParallel(
+    {
+        "question": RunnablePassthrough(),
+        "context": compressor_retriever,
+    }
+)
+
+output_parser = StrOutputParser()
+
+compressor_retrieval_chain = setup_retrival | rag_prompt | llm | output_parser
+
+compressor_retrieval_chain.invoke({"Quais são os principais pontos de risco do marco legal de IA"})
